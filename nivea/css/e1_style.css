@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* 키비주얼 */
+.kb {
+    background: url(http://pmhportfolio.dothome.co.kr/nivea/img/sub05/header.jpg) no-repeat center / cover;
+}
+
+#cont1 {
+    text-align: center;
+}
+#bd_title h2 {
+    margin-bottom: 30px;
+}
+#bd_title {
+    max-width: 550px;
+    margin: 0 auto 50px;
+}
+#bd_wrap {
+    min-height: 500px;
+}
+.board_list th.title {
+    font-size: 13px;
+    font-weight: normal;
+    color: #333;
+}
+.board_list td.title {
+    font-size: 13px;
+    font-weight: normal;
+    color: #333;
+}
+.read_header h1 {
+    margin: 0 auto;
+}
+
+@media screen and (max-width:768px) {
+    #bd_wrap {
+        min-height: 250px;
+    }
+}

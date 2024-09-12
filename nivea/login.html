@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" href="img/main/nivea_favicon.png">
+    <link rel="shortcut icon" href="img/main/nivea_favicon.png">
+    <!-- 자바스크립트 라이브러리의 제이쿼리 불러오기 -->
+    <script src="js/jquery.1.11.0.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/common.js"></script>
+    <title>로그인/회원가입</title>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login_style.css">
+</head>
+<body>
+    <!-- header불러오기 -->
+    <? include "header.html" ?>
+
+    <div id="bg_blue">
+        <div id="login_wrap">
+            <div id="title">
+                <h2 class="title">LOGIN</h2>
+                <p class="text">니베아에 오신 것을 환영합니다.</p>
+            </div>
+            <div id="login_box">
+                <form id="login">
+                    <ul>
+                        <li>
+                            <input type="text" name="id" id="id" pattern="[a-z^0-9]{4,12}" placeholder="아이디를 입력해주세요." required>
+                        </li>
+                        <li>
+                            <input type="password" name="pw" id="pw" pattern="(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,12}" placeholder="비밀번호를 입력해주세요." title="소문자, 숫자, 기호로 이루어진 4~12개의 글자" required>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="auto" id="auto">
+                            <label for="auto">아이디 기억하기</label></li>
+                        <li>
+                            <input type="submit" value="로그인" id="l_btn" formmethod="post" formaction="http://pmhhtmlclass.dothome.co.kr/">
+                        </li>
+                    </ul>
+                </form>
+                <div id="join">
+                    <ul>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">아이디 찾기 / 비밀번호 찾기</a></li>
+                    </ul>
+                </div>
+                <div id="easy_login">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="img/login/kakao_login.png" alt="카카오톡">
+                                <strong>카카오톡 간편 로그인</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/login/naver_login.png" alt="네이버">
+                                <strong>네이버 간편 로그인</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/login/facebook_login.png" alt="페이스북">
+                                <strong>페이스북 간편 로그인</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- footer불러오기 -->
+    <? include "footer.html" ?>
+</body>
+</html>

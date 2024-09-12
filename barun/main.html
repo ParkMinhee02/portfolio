@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바른치과</title>
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/favicon.png" rel="apple-touch-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            //모바일 햄버거 메뉴 클릭 시 메뉴 사용
+            $('#navi_t .open').click(function(){
+                $('#mb_navi_bg').stop().animate({
+                    right: 0
+                }, 300);
+
+                $('#navi_t .open').hide();
+                $('#navi_t .close').show();
+                $('header').addClass('act');
+
+                /* 열렸을 때 스크롤 바 제거 */
+                $('body').css('overflow', 'hidden');
+            }); // 열림
+            $('#mb_navi_bg, #navi_t .close, .navi_c ul li').click(function(){
+                $('#mb_navi_bg').stop().animate({
+                    right: '-100%'
+                }, 300);
+
+                $('#navi_t .open').show();
+                $('#navi_t .close').hide();
+                $('header').removeClass('act');
+
+                /* 닫혔을 때 스크롤 바 생성 */
+                $('body').css('overflow', 'auto');
+            }); // 닫기
+
+            $(window).resize(function(){
+                if($(this).outerWidth() > 1050) {
+                    $('#mb_navi_bg').css({right:'-100%'});        
+                    $('#navi_t .open').show();
+                    $('#navi_t .close').hide();
+                }
+            });
+
+            //각 메뉴 클릭시 해당 콘텐츠로 스크롤
+            $('#pc_navi ul li, .navi_c ul li').click(function(){
+                box_id = $(this).find('a').attr('href');  //해당 콘텐츠 id명
+
+                h_top = $(box_id).offset().top;
+
+                $('html, body').animate({
+                    scrollTop : h_top
+                },400);
+
+                return false;
+            });
+
+            setTimeout(function(){
+                    $('#cont1').addClass('active');
+            },100);
+
+            var offset = 50;
+
+            //화면 스크롤시 네비게이션 배경 보여주기
+            $(window).scroll(function(){
+                var st = $(this).scrollTop();
+                var sth = st + 250;
+
+                if(st > offset){
+                    $('header').addClass('sd');
+                }else{
+                    $('header').removeClass('sd');
+                }
+
+                //각 콘텐츠 위치에 도달시 해당 메뉴 활성화
+                $('body > div').each(function(){
+                    var i = $(this).index();
+
+                    if($(this).offset().top <= sth){
+                        $(this).addClass('active');
+                    }
+                });//end each
+
+                //마지막 콘텐츠 영역이 창의 세로길이보다 적은 경우
+                if(st >= ($('body').height() - $(window).height())){
+                    $('body > div:last').addClass('active');
+                }
+            });//end scroll
+
+            //content3
+            var $tg = $('#cont3 > div'); //슬라이드 묶은 id선택자
+            var visual = $tg.find('#cont3_l ul li'); // 슬라이드 될 각 이미지
+            var visualLen = visual.length; //슬라이드 이미지 개수
+
+            var cnt = 0; //현재 보이는 이미지 번호
+            var setTime; //시간을 기억하는 변수
+            var dir = 'next'; //next: 다음이미지 방향, prev: 이전이미지 방향
+
+            //슬라이딩 함수 선언
+            function move(i){
+                if(cnt == i) return;
+
+                var cnt_img = visual.eq(cnt); //현재 보이는 이미지
+                var next_img = visual.eq(i); //새로 들어올 이미지
+
+                $('.change_t ul li').hide();
+                $('.change_t ul li').eq(i).show();
+
+                if(dir == 'next'){
+                    cnt_img.css({left:0}).stop().animate({left:'-100%'});
+                    next_img.css({left:'100%'}).stop().animate({left:0});
+                }else{
+                    cnt_img.css({left:0}).stop().animate({left:'100%'});
+                    next_img.css({left:'-100%'}).stop().animate({left:0});
+                }
+                cnt = i;
+            }//move()함수 종료
+
+
+            //다음버튼 클릭시 다음이미지 슬라이딩 함수 호출
+            $tg.find('.next').click(function(){
+                dir='next';
+                var n = cnt + 1;
+                if(n == visualLen){
+                    n = 0;
+                }
+                move(n);
+                clearInterval(setTime);
+            });
+
+            //이전버튼 클릭시 이전이미지 슬라이딩 함수 호출
+            $tg.find('.prev').click(function(){
+                dir='prev';
+                var n = cnt - 1;
+                if(n < 0){
+                    n = visualLen - 1;
+                }
+                move(n);
+                clearInterval(setTime);
+            });
+
+            timer();
+
+            //5초마다 슬라이딩 이미지 함수 호출
+            function timer(){
+                setTime = setInterval(function(){
+                    dir='next';
+                    var n = cnt + 1;
+                    if(n == visualLen){
+                        n = 0;
+                    }
+                    move(n);
+                    
+                }, 5000);
+            }//end timer()
+        });
+    </script>
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main_style.css">
+</head>
+<body>
+    <header>
+        <div id="navi" class="row_c">
+            <nav id="pc_navi">
+                <ul>
+                    <li><a href="#cont3">바른치과의 특별함</a></li>
+                    <li><a href="#cont4">의료진 소개</a></li>
+                    <li><a href="#cont5">디지털 임플란트</a></li>
+                </ul>
+                <div class="logo"><a href="#"><img src="img/logo.png" alt="바른치과"></a></div>
+                <ul>
+                    <li><a href="#cont7">치과 둘러보기</a></li>
+                    <li><a href="#cont8">진료 시간</a></li>
+                    <li><a href="#cont8">오시는 길</a></li>
+                </ul>
+            </nav>
+            <nav id="mo_navi">
+                <div id="navi_t">
+                    <div class="phone"><a href="tel: 010-0000-0000"><img src="img/call_m.png" alt="전화"></a></div>
+                    <div class="logo"><a href="main.html"><img src="img/logo.png" alt="바른치과"></a></div>
+                    <div class="menu">
+                        <ul>
+                            <li class="open"><img src="img/menu_m.png" alt="메뉴"></li>
+                            <li class="close"><img src="img/close_m.png" alt="닫기"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="mb_navi_bg">    
+            <div id="mo_navi_cont">
+                <nav id="navi_m">
+                    <ul class="navi_c">
+                        <li><a href="#cont3">바른치과의 특별함</a></li>
+                        <li><a href="#cont4">의료진 소개</a></li>
+                        <li><a href="#cont5">디지털 임플란트</a></li>
+                        <li><a href="#cont7">치과 둘러보기</a></li>
+                        <li><a href="#cont8">진료 시간</a></li>
+                        <li><a href="#cont8">오시는 길</a></li>
+                    </ul>
+                    <ul class="navi_sns">
+                        <li><a href="#"><img src="img/sns_1.png" alt="페이스북"></a></li>
+                        <li><a href="https://blog.naver.com/barundc"><img src="img/sns_2.png" alt="블로그"></a></li>
+                        <li><a href="#cont9"><img src="img/sns_4.png" alt="상담문의"></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="cont1">
+        <div class="row_c">
+            <div id="cont1_text">
+                <h1><span>정확하고 안전한 디지털진료로 환자를 먼저 생각하는</span>바른치과는 언제나 기본에 충실하고 올바르게 진료합니다.</h1>
+                <p>PROPER TREATMENT FAITHFUL TO THE BASICS</p>
+            </div>
+        </div>
+    </div>
+    <div id="cont2" class="pdt">
+        <div class="row_c">
+            <div id="cont2_t">
+                <h1 class="subtitle">DENTAL CARE SUBJECTS</h1>
+                <h2 class="title">주요 진료 클리닉</h2>
+            </div>
+            <div id="cont2_c">
+                <ul>
+                    <li>
+                        <img src="img/subjects_1.png" alt="임플란트">
+                            <h3>임플란트</h3>
+                            <p class="text">임상경험이 풍부한 의료진이 직접 시술합니다.</p>
+                        </img>
+                    </li>
+                    <li>
+                        <img src="img/subjects_2.png" alt="투명교정">
+                            <h3>투명교정</h3>
+                            <p class="text">심미성은 물론 치아의 기능과 교합까지 고려해 교정합니다.</p>
+                        </img>
+                    </li>
+                    <li>
+                        <img src="img/subjects_3.png" alt="심미보철">
+                            <h3>심미보철</h3>
+                            <p class="text">정교한 심미적인 보철치료를 시행합니다.</p>
+                        </img>
+                    </li>
+                    <li>
+                        <img src="img/subjects_4.png" alt="자연치아 살리기">
+                            <h3>자연치아 살리기</h3>
+                            <p class="text">자연치아를 살리는 치료를 우선으로 시행합니다.</p>
+                        </img>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="cont3" class="pd">
+        <div class="row_c">
+            <div id="cont3_l">
+                <ul>
+                    <li><img src="img/special_1.jpg" alt="디지털 임플란트로 앞서가는 치과"></li>
+                    <li><img src="img/special_2.jpg" alt="기본에 충실하고 원칙을 지키는 올바른 진료"></li>
+                    <li><img src="img/special_3.jpg" alt="환자를 먼저 생각하는 믿을 수 있는 치과"></li>
+                    <li><img src="img/special_4.jpg" alt="두려움과 통증을 최소화해주는 치료"></li>
+                </ul>
+            </div>
+            <div id="cont3_r">
+                <h1 class="subtitle">SPECIAL</h1>
+                <h2 class="title">BARUN’S SPECIAL</h2>
+                <div class="change_t">
+                    <ul>
+                        <li>
+                            <h3>디지털 임플란트로 앞서가는 치과</h3>
+                            <p class="text">바른치과는 그동안 축적한 다양한 임상경험과 디지털 임플란트 노하우를 바탕으로  안전하고 정확한 시술이 가능합니다.</p>
+                        </li>
+                        <li>
+                            <h3>기본에 충실하고 원칙을 지키는 올바른 진료</h3>
+                            <p class="text">3D 구강 사진 촬영을 통해 의료진이 환자 분의 구강상태에 대한 충분한 설명과 이해를 바탕으로 치료합니다.</p>
+                        </li>
+                        <li>
+                            <h3>환자를 먼저 생각하는 믿을 수 있는 치과</h3>
+                            <p class="text">항상 환자의 입장에서 먼저 생각하고 검증된 시술과 정품 재료만의 사용으로 믿을 수 있는 치과가 되기 위해 최선을 다하겠습니다.</p>
+                        </li>
+                        <li>
+                            <h3>두려움과 통증을 최소화해주는 치료</h3>
+                            <p class="text">의료진의 친절한 설명과 두려움과 통증에 효과적인 무통마취 시스템을 통해 치과에 대한 트라우마를 해소할 수 있습니다</p>
+                        </li>
+                    </ul>
+                </div>
+                <ul>
+                    <li class="prev">이전</li>
+                    <li class="next">다음</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="cont4">
+        <div id="cont4_l">
+            <div class="cont4_wrap">
+                <h1 class="subtitle">DENTIST</h1>
+                <h2 class="title"><strong>김민재</strong> 대표원장</h2>
+                <h3 class="ptext">
+                    <span>치의학 박사 (단국대학교 치의학대학원)</span>
+                    <span>보건복지부인증 통합치의학 전문의</span>
+                </h3>
+                <p class="text">
+                    <span>단국대학교 치과대학 졸업</span>
+                    <span>단국대학교 치과대학 임상외래교수</span>
+                    <span>대구카톨릭대학교 의과대학 임상외래교수</span>
+                    <span>미국 치과임플란트학회 인정의과정 수료 (AAID Maxicourse)</span>
+                    <span>미국 치과임플란트학회 Associate Fellow</span>
+                    <span class="enter">미국 치과의사 국가고시 pass (NDBE part I, II)</span>
+                    <span>대한구강악안면임플란트학회 (KAOMI) 이사</span>
+                    <span>한국국제구강임플란트학회 (ICOI) 이사</span>
+                    <span>세계초음파치과학회 (WAUPS) 한국지부 이사</span>
+                    <span>한국심는치아연구회 정회원</span>
+                    <span>BDPG(Basic Dental Practice Group) 정회원</span>
+                    <span>컬러비아치과연구회 (CAO) 정회원</span>
+                    <span>글로벌임플란트연구회 (BAO) 정회원</span>
+                    <span class="enter">GIIA 임플란트 사랑니 Live surgery course 지도의사</span>
+                    <span>前 도봉 다움치과 부원장</span>
+                    <span>前 압구정 오늘안치과(미니쉬치과병원) 부원장</span>
+                </p>
+            </div>
+        </div>
+        <div id="cont4_r"><img src="img/dentist.jpg" alt="김민재 대표원장"></div>
+    </div>
+    <div id="cont5">
+        <div id="cont5_first" class="pd">
+            <div class="row_c">
+                <div id="cont5f_r">
+                    <div id="cont5f_text">
+                        <h1><strong>DIGITAL</strong> IMPLANT</h1>
+                        <h2 class="subtitle">BAREUN DENTAL CLINIC’S SPECIAL</h2>
+                        <h3>디지털 임플란트로 <strong>정확하게! 빠르게! 편안하게!</strong></h3>
+                    </div>
+                    <h4 class="ptext">보다 성공적인 치료를 기대한다면 바른치과의 디지털 임플란트가 정답입니다!</h4>
+                    <p class="text">바른치과의 디지털 임플란트는 3D 컴퓨터 모의수술 과정을 통해 최적의 시술방법을 결정할 수 있습니다. 또한 임플란트 식립 유도장치인 가이드를 제작하여 최소 절개 시술이 가능하고 적은 통증만으로 빠르게 시술이 가능합니다.</p>
+                </div>
+            </div>
+        </div>
+        <div id="cont5_second" class="pdb">
+            <div id="cont5s_l">
+                <h1 class="subtitle">DIGITAL IMPLANT PROCESS</h1>
+                <h2 class="title">디지털 임플란트의 과정</h2>
+                <p class="text">3차원 디지털 시스템을 이용한 디지털 임플란트는 정확하고 안전한 시술이 가능합니다.</p>
+            </div>
+            <div id="cont5s_r">
+                <ul>
+                    <li>
+                        <img src="img/digital_2.jpg" alt="3차원 구강스캔">
+                        <div class="cont5s_it">
+                            <h3>STEP 01</h3>
+                            <p>3차원 구강스캔</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/digital_3.jpg" alt="모의시술 및 디자인">
+                        <div class="cont5s_it">
+                            <h3>STEP 02</h3>
+                            <p>모의시술 및 디자인</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/digital_4.jpg" alt="가이드&보철제작">
+                        <div class="cont5s_it">
+                            <h3>STEP 03</h3>
+                            <p>가이드&보철제작</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/digital_5.jpg" alt="임플란트 식립">
+                        <div class="cont5s_it">
+                            <h3>STEP 04</h3>
+                            <p>임플란트 식립</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="cont5_third" class="pd">
+            <div class="row_c">
+                <h1 class="subtitle">BAREUN DENTAL CLINIC’S SPECIAL</h1>
+                <h2 class="title">바른 디지털 임플란트의 장점</h2>
+                <div id="cont5t_l">
+                    <ul>
+                        <li>
+                            <img src="img/digital_6.jpg" alt="컴퓨터 모의시술">
+                            <div class="cont5t_t">
+                                <h3>01. 컴퓨터 모의시술</h3>
+                                <p class="text">컴퓨터 시뮬레이션을 통해 임플란트의 식립 깊이는 물론 각도 등을 미리 파악하여 정확하고 안전하게 시술계획을 세울 수 있습니다.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/digital_7.jpg" alt="무절개 가이드 임플란트">
+                            <div class="cont5t_t">
+                                <h3>02. 무절개 가이드 임플란트</h3>
+                                <p class="text">미리 제작한 임플란트 식립 가이드를 이용해 잇몸을 절개할 필요 없이, 정확한 위치에 빠르고 안전하게 시술을 할 수 있습니다.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/digital_8.jpg" alt="출혈 붓기 최소 & 빠른 회복">
+                            <div class="cont5t_t">
+                                <h3>03. 출혈 붓기 최소 & 빠른 회복</h3>
+                                <p class="text">임플란트 식립을 위해 잇몸을 절개하지 않아 출혈과 붓기가 적을 뿐만 아니라 2차 감염을 예방하고 회복이 빨라 노약자도 편안하게 시술을 받을 수있습니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cont6">
+        <div id="cont6_first" class="pd">
+            <div id="cont6_l">
+                <h1 class="subtitle">SLEEP IMPLANT</h1>
+                <h2 class="title">자고 일어난 듯이 편안한 <strong>수면 임플란트</strong></h2>
+                <h3 class="ptext">이제, 임플란트 수술이 무섭다는 고정관념은 버리셔도 좋습니다!</h3>
+                <p class="text">수면 임플란트란, 환자가 편안한 상태에서 시술 받을 수 있도록 환자의 감각을 완화시킨 후 임플란트 수술을 진행하는 방법입니다. 임플란트 수술을 편안하게 받을 수 있으며, 치과치료에 대한 막연한 두려움, 공포를 해소할 수 있습니다.</p>
+            </div>
+            <div id="cont6_r"><img src="img/sleep_1.jpg" alt="수면 임플란트"></div>
+        </div>
+        <div id="cont6_second" class="pdb">
+            <div class="row_c">
+                <h1 class="subtitle">BARUN IMPLANT</h1>
+                <h2 class="title">이런 분들은 꼭! 바른 임플란트로 하세요.</h2>
+                <p class="text">디지털 진료로 앞서가는 바른치과에서는 보다 정확하고 편안한 임플란트 시술로 환자의 부담을 크게 덜어드립니다.</p>
+                <div id="cont6_c">
+                    <ul>
+                        <li>
+                            <div class="cbox">01</div>
+                            <p class="text">치과에 대한 공포증이 심하신 경우</p>
+                        </li>
+                        <li>
+                            <div class="cbox">02</div>
+                            <p class="text">국소적인 마취가 잘 되지 않는 경우</p>
+                        </li>
+                        <li>
+                            <div class="cbox">03</div>
+                            <p class="text">수술에 대한 부담감이 큰 어르신</p>
+                        </li>
+                        <li>
+                            <div class="cbox">04</div>
+                            <p class="text">당뇨 등 만성질환을 앓고 계신 경우</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cont7">
+        <div id="cont7_b" class="pd">
+            <div id="cont7_t">
+                <h1 class="subtitle">INTERIOR</h1>
+                <h2 class="title">바른치과 둘러보기</h2>
+                <p class="text">바른치과는 고품격의 진료 서비스를 위해 보다 편안하고 쾌적한 진료환경을 제공합니다.</p>
+            </div>
+            <div id="swiper_wrap">
+                <div class="swiper sw1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="img/interior_1.jpg" alt="바른치과 인테리어"></div>
+                        <div class="swiper-slide"><img src="img/interior_2.jpg" alt="바른치과 인테리어"></div>
+                        <div class="swiper-slide"><img src="img/interior_1.jpg" alt="바른치과 인테리어"></div>
+                        <div class="swiper-slide"><img src="img/interior_2.jpg" alt="바른치과 인테리어"></div>
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div><!-- swiper -->
+        </div>
+    </div>
+    <div id="cont8">
+        <div id="cont8_first" class="pd">
+            <div id="cont8_t" class="row_c">
+                <div id="cont8_l">
+                    <h1 class="title">진료시간</h1>
+                    <div class="sc">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th><span>월</span><span>화</span><span>목</span><span>금</span></th>
+                                    <td>09 : 30 ~ 18 : 30</td>
+                                </tr>
+                                <tr>
+                                    <th><span>수</span><span>요</span><span>일</span></th>
+                                    <td>09 : 30 ~ 20 : 30</td>
+                                </tr>
+                                <tr>
+                                    <th><span>토</span><span>요</span><span>일</span></th>
+                                    <td>09 : 30 ~ 13 : 30 (점심시간 없이 진료)</td>
+                                </tr>
+                                <tr>
+                                    <th><span>점</span><span>심</span><span>시</span><span>간</span></th>
+                                    <td>13 : 00 ~ 14 : 00</td>
+                                </tr>
+                                <tr>
+                                    <th class="textp"><span>휴</span><span>진</span><span>안</span><span>내</span></th>
+                                    <td class="textp">매월 넷째주 목요일, 일요일, 공휴일 휴진</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="cont8_r">
+                    <h1 class="title">오시는 길</h1>
+                    <div class="sc">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th><span>치</span><span>과</span><span>주</span><span>소</span></th>
+                                    <td>서울 성동구 고산자로 203 2층</td>
+                                </tr>
+                                <tr>
+                                    <th><span>주</span><span>차</span><span>안</span><span>내</span></th>
+                                    <td>바른치과 맞은편 레노스블랑쉬(1층 메가커피 건물) 주차장 이용</td>
+                                </tr>
+                                <tr>
+                                    <th><span>대</span><span>중</span><span>교</span><span>통</span></th>
+                                    <td><span class="textp">왕십리역 10번 출구(250M) 도보 3분</span>행당역 3번 출구(400M) 도보 5분</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="tell">
+                            <img src="img/info.png" alt="전화상담">
+                            <h2>02 . 2292 . 2275</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cont8_second">
+            <div id="map" style="width:100%;height:500px;"></div>
+        </div>
+    </div>
+    <div id="cont9" class="pd">
+        <div class="row_c">
+            <h1 class="subtitle">Consultation</h1>
+            <h2 class="title">빠른 상담</h2>
+            <form action="#">
+                <ul>
+                    <li class="input_t">
+                        <input type="text" id="name" name="name" placeholder="이름" maxlength="5">
+                        <input type="tel" id="phone" name="phone" placeholder="전화번호" pattern="[0-9]{11}" required>
+                    </li>
+                    <li>
+                        <textarea name="text" id="text" rows="3" cols="10" placeholder="문의내용" required></textarea>
+                    </li>
+                    <li>
+                        <input type="submit" id="btn" value="빠른상담 신청하기" formmethod="post" formaction="#">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="row_c">
+            <div id="footer_l">
+                <div id="f_logo"><a href="main.html"><img src="img/logo.png" alt="바른치과"></a></div>
+                <ul>
+                    <li class="text">서울 성동구 고산자로 203, 2층 (행당동 319-9)</li>
+                    <li class="text"><span>대표전화 : 02&#41; 2292-2275</span><span>대표 : 김민재</span><span>사업자등록번호 : 566-91-00041</span></li>
+                    <li class="text">Copyright 2023 Barun Dental Clinic. All Right Reserved.</li>
+                </ul>
+            </div>
+            <div id="footer_r">
+                <ul>
+                    <li><a href="#"><img src="img/sns_1.png" alt="페이스북"></a></li>
+                    <li><a href="#"><img src="img/sns_2.png" alt="네이버 블로그"></a></li>
+                    <li><a href="#"><img src="img/sns_3.png" alt="비보험수가표"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Swiper JS -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=a017f4fccf8017fabe836329695dbe07"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('#cont7 .sw1', {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        autoplay: {
+            delay: 4000,
+        },
+        pagination: {
+            el: '#cont7 .swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '#cont7 .swiper-button-next',
+            prevEl: '#cont7 .swiper-button-prev',
+        },
+        breakpoints:{
+            768:{
+                slidesPerView: 2,
+                spaceBetween: 30,
+            },
+            320:{
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+        }
+        });
+
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = { 
+            center: new kakao.maps.LatLng(37.55826184427478, 127.0337410761413), // 지도의 중심좌표
+            level: 4 // 지도의 확대 레벨
+        };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        var imageSrc = 'img/marker.png', // 마커이미지의 주소입니다    
+            imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+            imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+        // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+            markerPosition = new kakao.maps.LatLng(37.55826184427478, 127.0337410761413); // 마커가 표시될 위치입니다
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage // 마커이미지 설정 
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);  
+
+        // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        var content = '<div class="customoverlay">' +
+            '  <a href="https://place.map.kakao.com/26890847" target="_blank">' +
+            '    <span class="title">바른치과의원</span>' +
+            '  </a>' +
+            '</div>';
+
+        // 커스텀 오버레이가 표시될 위치입니다 
+        var position = new kakao.maps.LatLng(37.55826184427478, 127.0337410761413);  
+
+        // 커스텀 오버레이를 생성합니다
+        var customOverlay = new kakao.maps.CustomOverlay({
+            map: map,
+            position: position,
+            content: content,
+            yAnchor: 1 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+@charset "utf-8";
+
+/* 키비주얼 */
+.kb {
+    background: url(../img/sub04/header.jpg) no-repeat center / cover;
+}
+
+/* content1 */
+#cont1 {
+    text-align: center;
+}
+#cont1 #cont1_top {
+    max-width: 450px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+#cont1 #cont1_top h1 {
+    margin-bottom: 30px;
+}
+#cont1 #cont1_bot ul {
+    display: flex;
+    justify-content: space-around;
+}
+#cont1 #cont1_bot ul li {
+    width: 20%;
+}
+#cont1 #cont1_bot ul li img {
+    margin-bottom: 30px;
+    max-width: 150px;
+}
+#cont1 #cont1_bot ul li p {
+    font-weight: 500;
+}
+#cont1 #cont1_bot ul li p span {
+    display: block;
+    color: #aaa;
+    font-weight: 300;
+}
+
+/* content2 */
+#cont2 {
+    background: var(--bgcolor);
+}
+#cont2 > div {
+    display: flex;
+    justify-content: space-between;
+}
+#cont2 #cont2_l {
+    max-width: 320px;
+}
+#cont2 #cont2_l h2 {
+    margin-bottom: 30px;
+}
+#cont2 #cont2_r {
+    max-width: 900px;
+    margin-left: 20px;
+}
+#cont2 #cont2_r table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+#cont2 #cont2_r .table_title {
+    background: var(--pbgcolor);
+    color: var(--wpcolor);
+}
+#cont2 #cont2_r th, #cont2 #cont2_r td {
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+    border: none;
+}
+#cont2 #cont2_r .table_title th:first-child {
+    border-radius: 30px 0 0 0;
+}
+#cont2 #cont2_r .table_title th:last-child {
+    border-radius: 0 30px 0 0;
+}
+#cont2 #cont2_r .table_cont th, #cont2 #cont2_r .table_cont td {
+    border-top: 1px solid #BCC0DE;
+}
+#cont2 #cont2_r .table_cont th {
+    background: #E2E6FF;
+}
+#cont2 #cont2_r .table_cont td {
+    background: var(--wcolor);
+}
+#cont2 #cont2_r .tl th:first-child {
+    border-radius: 0 0 0 30px;
+}
+#cont2 #cont2_r .tl td:last-child {
+    border-radius: 0 0 30px 0;
+}
+#cont2 #cont2_r tr span {
+    display: block;
+    color: #aaa;
+    font-size: 15px;
+    font-weight: 300;
+}
+#cont2 #cont2_r > p span {
+    display: block;
+    font-size: 14px;
+    color: #898CA5;
+}
+
+/* content3 */
+#cont3 {
+    background: url(../img/sub04/d1_6.jpg) no-repeat center / cover;
+    min-height: 300px;
+}
+#cont3 > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#cont3 #cont3_text {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#cont3 #cont3_text h1 {
+    color: var(--wpcolor);
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+#cont3 #cont3_text p {
+    color: var(--wcolor);
+}
+#cont3 #cont3_text p span {
+    display: block;
+    color: #ddd;
+}
+#cont3 #cont3_btn a {
+    display: block;
+    background: var(--wpcolor);
+    max-width: 200px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: var(--tcolor);
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 50px;
+}
+#cont3 #cont3_img {
+    max-width: 650px;
+}
+#cont3 #cont3_img img {
+    width: 100%;
+}
+#cont3 #cont3_img img:last-child {
+    display: none;
+}
+
+@media screen and (max-width:950px) {
+    /* content2 */
+    #cont2 > div {
+        display: block;
+    }
+    #cont2 #cont2_l {
+        text-align: center;
+        margin: 0 auto;
+    }
+    #cont2 #cont2_r {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+}
+@media screen and (max-width:768px) {
+    /* content1 */
+    #cont1 #cont1_bot ul {
+        flex-wrap: wrap;
+    }
+    #cont1 #cont1_bot ul li {
+        width: 50%;
+    }
+    #cont1 #cont1_bot ul li:nth-child(3), #cont1 #cont1_bot ul li:nth-child(4) {
+        margin-top: 50px;
+    }
+    #cont1 #cont1_bot ul li img {
+        width: 60%;
+    }
+
+    /* content3 */
+    #cont3 {
+        background: url(../img/sub04/d1_6m.jpg) no-repeat center / cover;
+    }
+    #cont3 > div {
+        display: block;
+    }
+    #cont3 #cont3_img {
+        margin-top: 70px;
+    }
+    #cont3 #cont3_img img:first-child {
+        display: none;
+    }
+    #cont3 #cont3_img img:last-child {
+        display: block;
+    }
+}
+@media screen and (max-width:450px) {
+    /* content2 */
+    #cont2 #cont2_r {
+        font-size: 16px;
+    }
+    #cont2 #cont2_r tr span {
+        font-size: 13px;
+    }
+}

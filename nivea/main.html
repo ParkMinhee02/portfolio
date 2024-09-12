@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivea Main</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon-precomposed" href="img/main/nivea_favicon.png">
+<link rel="shortcut icon" href="img/main/nivea_favicon.png">
+    <!-- 자바스크립트 라이브러리의 제이쿼리 불러오기 -->
+    <script src="js/jquery.1.11.0.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        // Jqurey
+        $(function(){
+            
+            //Cont1 높이 창에 맞게
+            $('.cont1_h').css('height', $(window).outerHeight());
+
+            setTimeout(function(){
+                $('#cont1').addClass('active');
+            },100);
+            
+        });
+        // Jqurey
+    </script>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main_style.css">
+</head>
+<body>
+    <header>
+        <div class="row_c">
+            <div id="logo">
+                <a href="main.html">
+                        <img src="img/main/logo.png" alt="NIVEA">
+                </a>
+            </div>
+            <nav id="main_menu">
+                <ul>
+                    <li>
+                        <form action="#">
+                            <input type="search" id="sh_box" placeholder="검색어를 입력해주세요.">
+                            <input type="submit" value="검색" id="sh_btn">
+                        </form>
+                    </li>
+                    <li><a href="login.html"><img src="img/main/btn_shoping.png" alt="장바구니"></a></li>
+                    <li><a href="login.html"><img src="img/main/btn_user.png" alt="마이페이지"></a></li>
+                    <li>
+                        <a class="menu-button" href="#">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header> <!-- header -->
+    <div id="navigation">
+        <!-- 모바일 네비게이션바 -->
+        <div id="mb_main_navi" class="navi">
+            <nav class="mb_navi">
+                <ul class="navi_text main_navi">
+                    <li>
+                        <a href="#"><span>ABOUT</span></a>
+                        <div class="mb_sub_navi">
+                            <ul>
+                                <li><a href="a1.html">브랜드스토리</a></li>
+                                <li><a href="a1.html">연혁</a></li>
+                                <li><a href="a1.html">지속가능성</a></li>
+                            </ul>
+                        </div>
+                    </li><!-- 1 -->
+                    <li>
+                        <a href="#"><span>PRODUCT</span></a>
+                        <div class="mb_sub_navi">
+                            <ul>
+                                <li><a href="b1.html#0">전체제품</a></li>
+                                <li><a href="b1.html#1">데오드란트</a></li>
+                                <li><a href="b1.html#2">립케어</a></li>
+                                <li><a href="b1.html#3">바디케어</a></li>
+                                <li><a href="b1.html#4">선케어</a></li>
+                                <li><a href="b1.html#5">쉐이빙</a></li>
+                                <li><a href="b1.html#6">핸드케어</a></li>
+                            </ul>
+                        </div>
+                    </li><!-- 2 -->
+                    <li>
+                        <a href="#"><span>FOR U</span></a>
+                        <div class="mb_sub_navi">
+                            <ul>
+                                <li><a href="c1.html">추천제품</a></li>
+                                <li><a href="c1.html">리뷰</a></li>
+                            </ul>
+                        </div>
+                    </li><!-- 3 -->
+                    <li>
+                        <a href="#"><span>SOCIETY</span></a>
+                        <div class="mb_sub_navi">
+                            <ul>
+                                <li><a href="d1.html">멤버십안내</a></li>
+                                <li><a href="d1.html">주문배송</a></li>
+                                <li><a href="d1.html">케어포인트</a></li>
+                            </ul>
+                        </div>
+                    </li><!-- 4 -->
+                    <li>
+                        <a href="#"><span>COMMUNITY</span></a>
+                        <div class="mb_sub_navi">
+                            <ul>
+                                <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">공지사항</a></li>
+                                <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">FAQ</a></li>
+                                <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">고객의 소리</a></li>
+                                <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">채용</a></li>
+                            </ul>
+                        </div>
+                    </li><!-- 5 -->
+                </ul>
+            </nav>
+            <div class="mb_btn">
+                <ul>
+                    <li><a href="#"><img src="img/main/btn_w_search.png" alt="검색"></a></li>
+                    <li><a href="login.html"><img src="img/main/btn_w_shoping.png" alt="장바구니"></a></li>
+                    <li><a href="login.html"><img src="img/main/btn_w_user.png" alt="마이페이지"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- pc 네비게이션 바 -->
+        <nav id="navi" class="navi">
+            <div id="main_navi" class="main_navi">
+                <ul class="big_menu">
+                    <li><a href="a1.html">ABOUT</a></li>
+                    <li><a href="b1.html#0">PRODUCT</a></li>
+                    <li><a href="c1.html">FOR U</a></li>
+                    <li><a href="d1.html">SOCIETY</a></li>
+                    <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">COMMUNITY</a></li>
+                </ul>
+                <div class="small_menu">
+                    <div><!-- 1 -->
+                        <ul>
+                            <li><a href="a1.html">브랜드스토리</a></li>
+                            <li><a href="a1.html">연혁</a></li>
+                            <li><a href="a1.html">지속가능성</a></li>
+                        </ul>
+                    </div>
+                    <div><!-- 2 -->
+                        <ul>
+                            <li><a href="b1.html#0">전체제품</a></li>
+                            <li><a href="b1.html#1">데오드란트</a></li>
+                            <li><a href="b1.html#2">립케어</a></li>
+                            <li><a href="b1.html#3">바디케어</a></li>
+                            <li><a href="b1.html#4">선케어</a></li>
+                            <li><a href="b1.html#5">쉐이빙</a></li>
+                            <li><a href="b1.html#6">핸드케어</a></li>
+                        </ul>
+                    </div>
+                    <div><!-- 3 -->
+                        <ul>
+                            <li><a href="c1.html">추천제품</a></li>
+                            <li><a href="c1.html">리뷰</a></li>
+                        </ul>
+                    </div>
+                    <div><!-- 4 -->
+                        <ul>
+                            <li><a href="d1.html">멤버십안내</a></li>
+                            <li><a href="d1.html">주문배송</a></li>
+                            <li><a href="d1.html">케어포인트</a></li>
+                        </ul>
+                    </div>
+                    <div><!-- 5 -->
+                        <ul>
+                            <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">공지사항</a></li>
+                            <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">FAQ</a></li>
+                            <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">고객의 소리</a></li>
+                            <li><a href="http://pmhportfolio.dothome.co.kr/xe/e1">채용</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav> <!-- navi -->
+    </div> <!-- navigation -->
+    <div id="cont1" class="row_c">
+        <div class="cont1_h">
+            <div class="cont1_box">
+                <figure>
+                    <img src="img/main/main_image_1.png" alt="A TRUCTY NIVEA">
+                    <img src="img/main/main_image_2.png" alt="Nivea Cream">
+                </figure>
+                <div id="cont1_t">
+                    <h1>글로벌 No.1 스킨케어</h1>
+                    <p>니베아는 독일 No.1 스킨케어 브랜드로 피부가 스스로 건강해질 수 있는 스킨케어를 연구합니다.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div> <!-- cont1 -->
+    <div id="cont2" class="pd">
+        <div class="row_c">
+            <div id="cont2_top">
+                <div id="cont2_text">
+                    <h1>EVENT</h1>    
+                    <h2 class="title">#겉차속촉 데일리 선세럼 세일 이벤트</h2>
+                    <p class="text">2024.04.01 10:00 AM ~ 04.30 18:00 PM</p>
+                </div>
+                <div id="cont2_btn">
+                    <ul>
+                        <li class="prev">이전</li>
+                        <li class="next">다음</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="cont2_bot">
+                <div class="swiper swiper2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="http://pmhportfolio.dothome.co.kr/xe/e1"><img src="img/main/event_1.jpg" alt="#겉차속촉 데일리 선세럼 세일 이벤트" class="pc_img"></a>
+                            <a href="http://pmhportfolio.dothome.co.kr/xe/e1"></a><img src="img/main/event_1m.jpg" alt="#겉차속촉 데일리 선세럼 세일 이벤트" class="mb_img"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="http://pmhportfolio.dothome.co.kr/xe/e1"><img src="img/main/event_2.jpg" alt="봄날의 건조한 입술! 립케어 리뷰 이벤트" class="pc_img"></a>
+                            <a href="http://pmhportfolio.dothome.co.kr/xe/e1"><img src="img/main/event_2m.jpg" alt="봄날의 건조한 입술! 립케어 리뷰 이벤트" class="mb_img"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- cont2 -->
+    <div id="cont3" class="pd">
+        <div class="row_c">
+            <div class="text_box3">
+                <h1 class="title"><span>100년이 넘는 기간 동안</span> 사랑받은, 항상 믿을 수 있는 제품 니베아</h1>
+                <p class="text">니베아는 전 세계 173개국에서 약 50 개가 넘는 제품을 제공하는 스킨 케어 전문 브랜드로, 1911년 부터 100년이 넘는 시간동안 사람들이 자신의 피부에 대해 더욱 자신감을 가질 수 있도록 도움을 주었습니다. 니베아는 모든 타입의 피부에 대해 효과적인 스킨 케어 제품을 표방합니다.</p>
+                <div id="sc_cont3"><a href="a1.html">바로가기</a></div>
+            </div>
+        </div>
+    </div> <!-- cont3 -->
+    <div id="cont4" class="row_c">
+        <nav>
+            <ul class="pdt">
+                <li>
+                    <a href="b1.html#1">
+                        <img src="img/main/category_1.png" alt="DEODORANT">
+                        <p class="text">DEODORANT</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="b1.html#2">
+                        <img src="img/main/category_2.png" alt="LIP CARE">
+                        <p class="text">LIPCARE</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="b1.html#3">
+                        <img src="img/main/category_3.png" alt="BODY CARE">
+                        <p class="text">BODYCARE</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="b1.html#4">
+                        <img src="img/main/category_4.png" alt="SUN CARE">
+                        <p class="text">SUNCARE</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="b1.html#5">
+                        <img src="img/main/category_5.png" alt="SHAVING">
+                        <p class="text">SHAVING</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="b1.html#6">
+                        <img src="img/main/category_6.png" alt="HAND CARE">
+                        <p class="text">HANDCARE</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div> <!-- cont4 -->
+    <div id="cont5" class="swiper swiper1 pd">
+        <div id="cont5_title"><span>BEST</span> PRODUCT</div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cont5_flex">
+                    <div class="cont5_box">
+                        <img src="img/main/best_1.png" alt="니베아 크림 150mL">
+                        <h1 class="title">니베아 크림 150mL</h1>
+                        <p class="text">니베아 크림은 니베아의 역사와 기술력이 응집된 시그니처 크림이 선사하는 페이스 탄력 & 보습케어 제품으로 스킨케어부터 메이크업까지 다양한 방법으로 활용가능한 만능 페이셜 크림입니다.</p>
+                        <div class="cont5_btn"><a href="b3_2.html">제품 더보기</a></div>
+                    </div>
+                </div>
+            </div> <!-- 1 -->
+            <div class="swiper-slide">
+                <div class="cont5_flex">
+                    <div class="cont5_box">
+                        <img src="img/main/best_2.png" alt="니베아 데오드란트 롤온 50ml">
+                        <h1 class="title">니베아 데오드란트 롤온 50ml</h1>
+                        <p class="text">니베아 데오드란트 롤온은 땀으로 인한 체취는 지우고, 언더랑 피부를 항상 보송하게 유지해주는 액상형 제품입니다. 나를 위한 투자! 니베아 데오드란트 롤온으로 자신감을 높여보세요.</p>
+                        <div class="cont5_btn"><a href="b3_2.html">제품 더보기</a></div>
+                    </div>
+                </div>
+            </div> <!-- 2 -->
+            <div class="swiper-slide">
+                <div class="cont5_flex">
+                    <div class="cont5_box">
+                        <img src="img/main/best_3.png" alt="니베아 히알루론 모이스쳐 플러스">
+                        <h1 class="title">니베아 히알루론 모이스쳐 플러스</h1>
+                        <p class="text">수용성 성분인 히알루론산을 립케어 포뮬러에 통합시켜 피부 겉에서 맴돌지 않고 속까지 침투하여 지속되는 촉촉함, 차원이 다른 수분감을 느껴보세요.</p>
+                        <div class="cont5_btn"><a href="b3_2.html">제품 더보기</a></div>
+                    </div>
+                </div>
+            </div> <!-- 3 -->
+            <div class="swiper-slide">
+                <div class="cont5_flex">
+                    <div class="cont5_box">
+                        <img src="img/main/best_4.png" alt="니베아 맨 프레시 킥 쉐이빙 폼">
+                        <h1 class="title">니베아 맨 프레시 킥 쉐이빙 폼</h1>
+                        <p class="text">민감한 피부에 스트레스 면도를 하기 위해서는 더욱 많은 보습과 유분이 필요합니다. 니베아 쉐이빙은 미세하고 풍부한 거품을 통해 면도 시 피부 자극 최소화에 도움을 줍니다.</p>
+                        <div class="cont5_btn"><a href="b3_2.html">제품 더보기</a></div>
+                    </div>
+                </div>
+            </div> <!-- 4 -->
+            <div class="swiper-slide">
+                <div class="cont5_flex">
+                    <div class="cont5_box">
+                        <img src="img/main/best_5.png" alt="니베아 인텐시브 바디로션 400ML">
+                        <h1 class="title">니베아 인텐시브 바디로션 400ML</h1>
+                        <p class="text">딥케어 에센스로 더욱 촉촉해진 피부 속 보습력을 느껴보세요. 바르기만 해도 비타민E 유도체가 함유된 새로운 포뮬러로 건조하고 거친 피부결을 즉각 완화시켜 드립니다.</p>
+                        <div class="cont5_btn"><a href="b3_2.html">제품 더보기</a></div>
+                    </div>
+                </div>
+            </div> <!-- 5 -->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination1"></div>
+    </div>
+    <div id="cont6" class="pdb">
+        <figure><img src="img/main/sustainability.jpg" alt="Nivea Sustainability"></figure>
+        <div id="sb">
+            <h1 class="title">니베아의 지속가능성</h1>
+            <p class="text">니베아는 앞으로도 피부에 순한 만큼 환경에도 영향을 최소화한 제품을 만드는 데 지속적으로 노력하겠습니다.</p>
+            <div id="sc_cont6"><a href="a1.html">바로가기</a></div>
+        </div>
+    </div> <!-- cont6 -->
+    <div id="cont7">
+        <div class="flow-text">
+            <div class="flow-wrap"><img src="img/main/rolling_text.png" alt="Global No.1 Skin Care, Nivea"></div>
+            <div class="flow-wrap"><img src="img/main/rolling_text.png" alt="Global No.1 Skin Care, Nivea"></div>
+            <div class="flow-wrap"><img src="img/main/rolling_text.png" alt="Global No.1 Skin Care, Nivea"></div>
+        </div>
+    </div> <!-- cont7 -->
+    <div id="cont8" class="row_c pd">
+        <div id="cont8_top">
+            <h1 class="title">REVIEW</h1>
+            <p class="text">100년 역사를 가진 No.1 독일 스킨케어 브랜드 니베아 고객님들의 소중한 상품 후기입니다.</p>
+        </div>
+        <div id="cont8_bot">
+            <div class="swiper3">
+                <div class="cont8_slide swiper">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <p>
+                                        여름이 돌아오니 필수로 쟁여야 해여 세일할때 드라이로 득템했어요 겨땀이 많이 나는 편은 아닌데 그래도 반팔티셔츠 밝은색 읽으면 약간 티가 날때가 있더라구요 혹시나 냄새 날까봐 항시 가지고 다니려고 구비했어요~ 여름이 길다해서 걱정인데 잘 써볼께요
+                                    </p>
+                                </div>
+                                <img src="img/main/review_1.jpg" alt="Nivea Deodorant">
+                            </a>
+                        </li> <!-- 1 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <p>
+                                        발색력은 체리, 스트로베리, 피치 순서대로더라구여 이 스트로베리는 자연스런 발색에 👍 쌩얼에 👍 발색이 체리보단 약해서 남자분들도 이거 바르면 우리 댕댕이가 저의 얼굴 가까이 와서 킁킁 ㅋ 향이 엄청 달콤해서 좋아요 ^^
+                                    </p>
+                                </div>
+                                <img src="img/main/review_2.jpg" alt="Nivea Lip Care">
+                            </a>
+                        </li> <!-- 2 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <p>
+                                        남편이 늘 사용하고있는 쉐이빙 폼이에요!! 니베아는 뭐 믿을 수 있는 브랜드이기도해서 품질적으로 기본은 하겠지 싶어 처음엔 그렇게 구매했는데요, 아 물론 가격도 세일들어가면 굉장히 저렴해서 다른 쉐이빙폼보다는 구매가 수월했던 것 같아요! 근데 뭐 써보니까 좋대여 그래서 그 뒤로 쉐이빙폼음 요것만 계속 구매하고 있습니다ㅎㅎ
+                                    </p>
+                                </div>
+                                <img src="img/main/review_3.jpg" alt="Nivea Shaving">
+                            </a>
+                        </li> <!-- 3 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li class="non_star">5</li>
+                                    </ul>
+                                    <p>
+                                        최근에 구매해서 사용 중에 괜찮은것 같아서 재구매했습니다.
+                                    </p>
+                                </div>
+                                <img src="img/main/review_4.jpg" alt="Nivea Cream">
+                            </a>
+                        </li> <!-- 4 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <p>
+                                        여름이 돌아오니 필수로 쟁여야 해여 세일할때 드라이로 득템했어요 겨땀이 많이 나는 편은 아닌데 그래도 반팔티셔츠 밝은색 읽으면 약간 티가 날때가 있더라구요 혹시나 냄새 날까봐 항시 가지고 다니려고 구비했어요~ 여름이 길다해서 걱정인데 잘 써볼께요
+                                    </p>
+                                </div>
+                                <img src="img/main/review_1.jpg" alt="Nivea Deodorant">
+                            </a>
+                        </li> <!-- 1 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <p>
+                                        발색력은 체리, 스트로베리, 피치 순서대로더라구여 이 스트로베리는 자연스런 발색에 👍 쌩얼에 👍 발색이 체리보단 약해서 남자분들도 이거 바르면 우리 댕댕이가 저의 얼굴 가까이 와서 킁킁 ㅋ 향이 엄청 달콤해서 좋아요 ^^
+                                    </p>
+                                </div>
+                                <img src="img/main/review_2.jpg" alt="Nivea Lip Care">
+                            </a>
+                        </li> <!-- 2 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li>5</li>
+                                    </ul>
+                                    <p>
+                                        남편이 늘 사용하고있는 쉐이빙 폼이에요!! 니베아는 뭐 믿을 수 있는 브랜드이기도해서 품질적으로 기본은 하겠지 싶어 처음엔 그렇게 구매했는데요, 아 물론 가격도 세일들어가면 굉장히 저렴해서 다른 쉐이빙폼보다는 구매가 수월했던 것 같아요! 근데 뭐 써보니까 좋대여 그래서 그 뒤로 쉐이빙폼음 요것만 계속 구매하고 있습니다ㅎㅎ
+                                    </p>
+                                </div>
+                                <img src="img/main/review_3.jpg" alt="Nivea Shaving">
+                            </a>
+                        </li> <!-- 3 -->
+                        <li class="swiper-slide">
+                            <a href="c1.html">
+                                <div class="review_con">
+                                    <ul class="review_star">
+                                        <li>1</li>
+                                        <li>2</li>
+                                        <li>3</li>
+                                        <li>4</li>
+                                        <li class="non_star">5</li>
+                                    </ul>
+                                    <p>
+                                        최근에 구매해서 사용 중에 괜찮은것 같아서 재구매했습니다.
+                                    </p>
+                                </div>
+                                <img src="img/main/review_4.jpg" alt="Nivea Cream">
+                            </a>
+                        </li> <!-- 4 -->
+                    </ul>
+                </div>
+            </div>
+            <div class="review_prev swiper-button-prev">이전</div>
+            <div class="review_next swiper-button-next">다음</div>
+        </div>
+    </div> <!-- cont8 -->
+    <footer>
+        <div id="footer" class="row_c">
+            <div id="footer_l">
+                <a href="main.html"><img src="img/main/logo_white.png" alt="Nivea"></a>
+                <div id="footer_btn">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">법적고지</a></li>
+                        <li><a href="#">이용약관</a></li>
+                    </ul>
+                </div>
+                <p>COPYRIGHT © beiersdorf ALL RIGHTS RESERVED.</p>
+            </div>
+            <div id="footer_r">
+                <div id="f_sns">
+                    <ul>
+                        <li><a href="https://www.instagram.com/niveakorea/">인스타그램</a></li>
+                        <li><a href="https://www.facebook.com/niveakorea">페이스북</a></li>
+                    </ul>    
+                </div>
+                <div id="brand_site">
+                    <div class="text_site">
+                        <span class="st">BRAND SITE</span>
+                        <img src="img/main/btn_footer.png" alt="열림,닫힘 버튼" class="f_icon">
+                    </div>
+                    <ul>
+                        <li><a href="https://www.nivea.com/">NIVEA GLOBAL</a></li>
+                        <li><a href="https://www.beiersdorf.co.kr/">BEIERSDORF</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer> <!-- footer -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+        var swiper1 = new Swiper('.swiper1', {
+            spaceBetween: 0,
+            loop: true,
+            pagination: {
+            el: '.swiper-pagination1',
+            clickable: true,
+            },
+            autoplay: {
+            delay: 4000,
+            },
+            effect: 'fade',
+        });
+
+        var swiper2 = new Swiper('.swiper2', {
+            slidesPerView: 1, //보여지는 슬라이드 개수
+            spaceBetween: 30, //슬라이드 사이 공간
+            loop: true,  // 반복 슬라이드
+            keyboard: {
+                enabled: true,  //키보드 제어
+            },
+            autoplay: {
+                delay: 5000, // 7초마다 슬라이드
+                disableOnInteraction: true, //버튼 제어시 멈춤
+            },
+            navigation: { //이전다음버튼 제어
+                nextEl: '#cont2_btn .next',
+                prevEl: '#cont2_btn .prev',
+            },
+            on: {
+                activeIndexChange: function(){
+                    var eventTitle = ['#겉차속촉 데일리 선세럼 세일 이벤트', '봄날의 건조한 입술! 립케어 리뷰 이벤트'];
+                    var eventText = ['2024.04.01 10:00 AM ~ 04.30 18:00 PM', '2024.03.01 10:00 AM ~ 03.31 18:00 PM'];
+                    $('#cont2_text h2').text(eventTitle[this.realIndex]);
+                    $('#cont2_text p').text(eventText[this.realIndex]);
+                }
+            },
+        });
+        
+        var swiper3 = new Swiper('.cont8_slide', {
+            slidesPerView: 4, // 몇 개가 보일지
+            loop: true,
+            navigation: {
+                nextEl: '.review_next',
+                prevEl: '.review_prev',
+            },
+            // 반응형 해상도에 따른 슬라이드 갯수 제어
+            breakpoints: {
+                1024: { //해상도
+                    slidesPerView: 4, //가로 4개 배열
+                    spaceBetween: 40,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                550: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                }
+            }
+        });
+    </script>
+</body>
+</html>
