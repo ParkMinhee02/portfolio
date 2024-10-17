@@ -9,6 +9,19 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@font-face {
+    font-family: 'LOTTERIACHAB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/LOTTERIACHAB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TmonMonsori';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   font-family: "Noto Sans KR", sans-serif;
   background-color: #fffaf0;
@@ -83,7 +96,7 @@ h6 {
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  font-family: 'Tmon', sans-serif;
+  font-family: 'TmonMonsori', sans-serif;
 }
 
 #header h1 a,
@@ -98,7 +111,7 @@ h6 {
   font-size: 60px;
   margin-top: 20px;
   color: #333;
-  font-family: 'LotteriaChab', sans-serif;
+  font-family: 'LOTTERIACHAB', sans-serif;
   text-shadow: 0 0 25px rgba(255, 250, 240, 0.6);
 }
 
@@ -426,7 +439,7 @@ section .container {
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: 'Tmon', sans-serif;
+  font-family: 'TmonMonsori', sans-serif;
   color: #6a8ad0;
 }
 
@@ -442,7 +455,7 @@ section .container {
   font-weight: 700;
   font-size: 26px;
   color: #648366;
-  font-family: 'Tmon', sans-serif;
+  font-family: 'TmonMonsori', sans-serif;
   margin-bottom: 30px;
 }
 
@@ -546,7 +559,7 @@ section .container {
   display: block;
   font-weight: 600;
   color: #333;
-  font-family: 'Tmon', sans-serif;
+  font-family: 'TmonMonsori', sans-serif;
 }
 
 .skills .progress .skill .val {

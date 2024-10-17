@@ -165,7 +165,7 @@
 }
 #cont3 .name, #cont3 .price {
     display: block;
-    font-family: 'SCoreDream', sans-serif;
+    font-family: 'S-CoreDream', sans-serif;
 }
 #cont3 .name {
     font-size: 24px;
@@ -334,7 +334,7 @@
     box-sizing: border-box;
 }
 #cont6_mid .mid_text h2 {
-    font-family: 'SCoreDream', sans-serif;
+    font-family: 'S-CoreDream', sans-serif;
     font-size: 20px;
     color: var(--pcolor);
     max-width: 300px;
@@ -350,7 +350,7 @@
     height: 60px;
     line-height: 60px;
     color: var(--wcolor);
-    font-family: 'SCoreDream', sans-serif;
+    font-family: 'S-CoreDream', sans-serif;
     font-weight: 600;
     margin: 50px auto 0;
     background: var(--pcolor);
